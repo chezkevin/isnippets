@@ -1,0 +1,33 @@
+{% extends 'users/base.html' %}
+
+{% block title %} Index {% endblock %}
+
+{% block content %}
+
+  <h1>Hello, {{ name }}! Please enter your snippet below</h1>
+
+  <form method="POST">
+    <div class="form-group">
+      <label for="snippet-title">Title</label>
+      <input type="title" class="form-control" id="snippet-title" placeholder="Title of Snippet">
+      <label for="snippet-language">Language</label>
+      <input type="language" class="form-control" id="snippet-language" placeholder="Language of Snippet">
+      <label for="snippet-body">Body of Snippet</label>
+      <textarea class="form-control" id="snippet-body" rows="3" placeholder="Body of Snippet"></textarea>
+    </div>
+    <div class="form-check">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+  {% if tasks %}
+    <ul class="list-group">
+    {% for task in tasks %} 
+      <li class="list-group-item">{{ task }}</li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Looks like you're free to go!</p>
+  {% endif%}
+
+{% endblock %}
