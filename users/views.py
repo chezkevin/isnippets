@@ -5,7 +5,8 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     context = {'name':'kevin', 'tasks': ['do your hw', 'fall in love', 'save the world']}
-
+    context = {}
+    
     return render(request, 'users/index.html', context)
 
 def detail(request):
